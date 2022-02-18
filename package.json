@@ -1,19 +1,23 @@
 {
-  "name": "obelixawsworkshop",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JoeVinten/obelixAwsWorkshop.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/JoeVinten/obelixAwsWorkshop/issues"
-  },
-  "homepage": "https://github.com/JoeVinten/obelixAwsWorkshop#readme"
+	"name": "obelixawsworkshop",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"compress": "zip -j deploy.zip ./src/*",
+		"aws": "aws lambda update-function-code --function-name=obelixAwsWorkshop --zip-file=fileb://deploy.zip",
+		"cleanup": "rm -rf deploy.zip",
+		"deploy": "npm run compress && npm run aws && npm run cleanup"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/JoeVinten/obelixAwsWorkshop.git"
+	},
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/JoeVinten/obelixAwsWorkshop/issues"
+	},
+	"homepage": "https://github.com/JoeVinten/obelixAwsWorkshop#readme"
 }
